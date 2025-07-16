@@ -25,6 +25,35 @@ import { Progress } from './components/ui/progress'
 const careerStages = [
   {
     id: 1,
+    title: "Educator",
+    period: "2016-2018",
+    company: "Seven Kidscode",
+    location: "Remote",
+    description: "Taught programming fundamentals to children and teenagers, developing curriculum and fostering young minds in technology education.",
+    skills: ["Teaching", "Curriculum Development", "Scratch", "Python", "JavaScript", "Communication", "Mentoring", "Educational Technology"],
+    achievements: [
+      "Developed interactive coding curriculum for 200+ students aged 8-16",
+      "Achieved 95% student retention rate across all programs",
+      "Created engaging project-based learning modules",
+      "Mentored students who went on to win regional coding competitions"
+    ],
+    projects: [
+      {
+        name: "Interactive Coding Games",
+        description: "Gamified learning platform to teach programming concepts",
+        tech: ["Scratch", "JavaScript", "HTML5"]
+      },
+      {
+        name: "Student Portfolio System",
+        description: "Platform for students to showcase their coding projects",
+        tech: ["Python", "Flask", "SQLite"]
+      }
+    ],
+    icon: GraduationCap,
+    color: "bg-emerald-500"
+  },
+  {
+    id: 2,
     title: "Web Developer",
     period: "2018-2020",
     company: "TechStart Solutions",
@@ -52,7 +81,7 @@ const careerStages = [
     color: "bg-blue-500"
   },
   {
-    id: 2,
+    id: 3,
     title: "Software Engineer",
     period: "2020-2022",
     company: "InnovateTech Corp",
@@ -81,7 +110,7 @@ const careerStages = [
     color: "bg-green-500"
   },
   {
-    id: 3,
+    id: 4,
     title: "Cloud Developer",
     period: "2022-2024",
     company: "CloudScale Technologies",
@@ -110,7 +139,7 @@ const careerStages = [
     color: "bg-purple-500"
   },
   {
-    id: 4,
+    id: 5,
     title: "Chief Operating Officer",
     period: "2024-Present",
     company: "NextGen Solutions",
@@ -141,12 +170,12 @@ const careerStages = [
 ]
 
 const skillsEvolution = [
-  { skill: "Frontend Development", levels: [90, 95, 85, 70] },
-  { skill: "Backend Development", levels: [60, 90, 95, 80] },
-  { skill: "Cloud & DevOps", levels: [20, 40, 95, 85] },
-  { skill: "Leadership & Management", levels: [10, 30, 60, 95] },
-  { skill: "System Architecture", levels: [30, 70, 90, 95] },
-  { skill: "Team Collaboration", levels: [70, 80, 85, 95] }
+  { skill: "Frontend Development", levels: [30, 90, 95, 85, 70] },
+  { skill: "Backend Development", levels: [20, 60, 90, 95, 80] },
+  { skill: "Cloud & DevOps", levels: [5, 20, 40, 95, 85] },
+  { skill: "Leadership & Management", levels: [85, 10, 30, 60, 95] },
+  { skill: "System Architecture", levels: [10, 30, 70, 90, 95] },
+  { skill: "Team Collaboration", levels: [95, 70, 80, 85, 95] }
 ]
 
 function App() {
@@ -266,7 +295,7 @@ function App() {
 
           <div className="relative">
             {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-blue-500 via-green-500 via-purple-500 to-orange-500 h-full hidden md:block" />
+            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-emerald-500 via-blue-500 via-green-500 via-purple-500 to-orange-500 h-full hidden md:block" />
 
             {careerStages.map((stage, index) => (
               <motion.div
@@ -394,7 +423,7 @@ function App() {
                 className="bg-white rounded-lg p-6 shadow-lg"
               >
                 <h3 className="text-lg font-semibold text-gray-900 mb-4">{skillData.skill}</h3>
-                <div className="grid grid-cols-4 gap-4">
+                <div className="grid grid-cols-5 gap-4">
                   {skillData.levels.map((level, stageIndex) => (
                     <div key={stageIndex} className="text-center">
                       <div className="text-sm text-gray-600 mb-2">
