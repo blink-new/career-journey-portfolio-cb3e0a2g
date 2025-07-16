@@ -26,7 +26,27 @@ import {
   CheckCircle,
   Brain,
   Target,
-  Lightbulb
+  Lightbulb,
+  Layers,
+  Terminal,
+  Smartphone,
+  Monitor,
+  GitBranch,
+  Package,
+  Cpu,
+  HardDrive,
+  Network,
+  Lock,
+  BarChart3,
+  FileText,
+  Presentation,
+  MessageSquare,
+  PieChart,
+  Workflow,
+  Gauge,
+  CloudCog,
+  Container,
+  Activity
 } from 'lucide-react'
 import { Button } from './components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card'
@@ -131,14 +151,150 @@ const roleCategories = [
   }
 ]
 
-const skillsOverview = [
-  { category: "Technical Skills", percentage: 95, color: "bg-blue-500" },
-  { category: "Cloud & DevOps", percentage: 90, color: "bg-purple-500" },
-  { category: "Leadership", percentage: 85, color: "bg-orange-500" },
-  { category: "Education", percentage: 88, color: "bg-green-500" },
-  { category: "Compliance", percentage: 82, color: "bg-red-500" },
-  { category: "Communication", percentage: 92, color: "bg-indigo-500" }
+const detailedSkills = [
+  {
+    category: "Frontend Development",
+    icon: Monitor,
+    color: "bg-blue-500",
+    gradient: "from-blue-500 to-blue-600",
+    percentage: 95,
+    description: "Creating responsive, interactive user interfaces with modern frameworks and best practices",
+    tools: [
+      { name: "React", icon: Code, level: 95 },
+      { name: "TypeScript", icon: Terminal, level: 90 },
+      { name: "Next.js", icon: Layers, level: 88 },
+      { name: "Tailwind CSS", icon: Smartphone, level: 92 },
+      { name: "Vue.js", icon: Code, level: 85 },
+      { name: "HTML5/CSS3", icon: Globe, level: 98 }
+    ],
+    projects: ["E-commerce Platform", "Dashboard Analytics", "Mobile-First Web Apps"]
+  },
+  {
+    category: "Backend Development",
+    icon: Server,
+    color: "bg-green-500",
+    gradient: "from-green-500 to-green-600",
+    percentage: 92,
+    description: "Building scalable server-side applications, APIs, and microservices architecture",
+    tools: [
+      { name: "Node.js", icon: Terminal, level: 93 },
+      { name: "Python", icon: Code, level: 90 },
+      { name: "Express.js", icon: Server, level: 95 },
+      { name: "GraphQL", icon: Network, level: 87 },
+      { name: "REST APIs", icon: Globe, level: 96 },
+      { name: "Microservices", icon: Package, level: 89 }
+    ],
+    projects: ["Payment Processing System", "Real-time Chat API", "Inventory Management"]
+  },
+  {
+    category: "Database & Storage",
+    icon: Database,
+    color: "bg-purple-500",
+    gradient: "from-purple-500 to-purple-600",
+    percentage: 90,
+    description: "Designing and optimizing database systems for performance and scalability",
+    tools: [
+      { name: "PostgreSQL", icon: Database, level: 92 },
+      { name: "MongoDB", icon: HardDrive, level: 88 },
+      { name: "Redis", icon: Zap, level: 85 },
+      { name: "MySQL", icon: Database, level: 90 },
+      { name: "Elasticsearch", icon: Globe, level: 82 },
+      { name: "Firebase", icon: Cloud, level: 87 }
+    ],
+    projects: ["Data Warehouse Design", "Real-time Analytics", "Multi-tenant Architecture"]
+  },
+  {
+    category: "Cloud & DevOps",
+    icon: Cloud,
+    color: "bg-indigo-500",
+    gradient: "from-indigo-500 to-indigo-600",
+    percentage: 88,
+    description: "Implementing cloud infrastructure, CI/CD pipelines, and automated deployment strategies",
+    tools: [
+      { name: "AWS", icon: CloudCog, level: 90 },
+      { name: "Docker", icon: Container, level: 92 },
+      { name: "Kubernetes", icon: Settings, level: 85 },
+      { name: "Terraform", icon: Workflow, level: 87 },
+      { name: "Jenkins", icon: GitBranch, level: 83 },
+      { name: "Azure", icon: Cloud, level: 80 }
+    ],
+    projects: ["Auto-scaling Infrastructure", "Multi-region Deployment", "Cost Optimization"]
+  },
+  {
+    category: "Leadership & Management",
+    icon: Users,
+    color: "bg-orange-500",
+    gradient: "from-orange-500 to-orange-600",
+    percentage: 85,
+    description: "Leading cross-functional teams, strategic planning, and driving organizational growth",
+    tools: [
+      { name: "Agile/Scrum", icon: Workflow, level: 92 },
+      { name: "Team Building", icon: Users, level: 88 },
+      { name: "Project Management", icon: Target, level: 90 },
+      { name: "Strategic Planning", icon: BarChart3, level: 85 },
+      { name: "Performance Management", icon: Gauge, level: 87 },
+      { name: "Stakeholder Management", icon: MessageSquare, level: 89 }
+    ],
+    projects: ["Team Restructuring", "Process Optimization", "Digital Transformation"]
+  },
+  {
+    category: "Education & Training",
+    icon: GraduationCap,
+    color: "bg-green-600",
+    gradient: "from-green-600 to-green-700",
+    percentage: 88,
+    description: "Developing curricula, mentoring professionals, and creating engaging learning experiences",
+    tools: [
+      { name: "Curriculum Design", icon: BookOpen, level: 90 },
+      { name: "Public Speaking", icon: Presentation, level: 92 },
+      { name: "Mentoring", icon: Users, level: 95 },
+      { name: "Workshop Facilitation", icon: MessageSquare, level: 88 },
+      { name: "E-learning Platforms", icon: Monitor, level: 85 },
+      { name: "Assessment Design", icon: FileText, level: 87 }
+    ],
+    projects: ["Full-Stack Bootcamp", "Corporate Training Program", "Online Course Platform"]
+  },
+  {
+    category: "Compliance & Security",
+    icon: Shield,
+    color: "bg-red-500",
+    gradient: "from-red-500 to-red-600",
+    percentage: 82,
+    description: "Ensuring regulatory compliance, risk management, and implementing security best practices",
+    tools: [
+      { name: "GDPR Compliance", icon: Lock, level: 88 },
+      { name: "Risk Assessment", icon: Activity, level: 85 },
+      { name: "Security Auditing", icon: Shield, level: 83 },
+      { name: "Policy Development", icon: FileText, level: 90 },
+      { name: "ISO Standards", icon: CheckCircle, level: 80 },
+      { name: "Data Protection", icon: Database, level: 87 }
+    ],
+    projects: ["Compliance Framework", "Security Assessment", "Policy Documentation"]
+  },
+  {
+    category: "Analytics & Monitoring",
+    icon: BarChart3,
+    color: "bg-teal-500",
+    gradient: "from-teal-500 to-teal-600",
+    percentage: 86,
+    description: "Implementing monitoring solutions, data analysis, and performance optimization",
+    tools: [
+      { name: "Google Analytics", icon: PieChart, level: 90 },
+      { name: "Prometheus", icon: Activity, level: 85 },
+      { name: "Grafana", icon: BarChart3, level: 88 },
+      { name: "New Relic", icon: Gauge, level: 82 },
+      { name: "DataDog", icon: Activity, level: 80 },
+      { name: "Custom Dashboards", icon: Monitor, level: 92 }
+    ],
+    projects: ["Performance Monitoring", "Business Intelligence", "Real-time Dashboards"]
+  }
 ]
+
+const skillsOverview = detailedSkills.map(skill => ({
+  category: skill.category,
+  percentage: skill.percentage,
+  color: skill.color
+}))
 
 function App() {
   const [activeRole, setActiveRole] = useState(0)
@@ -368,37 +524,167 @@ function App() {
             transition={{ duration: 0.8 }}
             className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8"
           >
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center flex items-center justify-center">
-              <Brain className="h-6 w-6 mr-3 text-primary" />
-              Comprehensive Skill Matrix
+            <h3 className="text-3xl font-bold text-gray-900 mb-4 text-center flex items-center justify-center">
+              <Brain className="h-8 w-8 mr-3 text-primary" />
+              Technical Expertise & Skills
             </h3>
+            <p className="text-gray-600 text-center mb-12 max-w-3xl mx-auto">
+              A comprehensive overview of technical skills, tools, and methodologies mastered across different domains
+            </p>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {skillsOverview.map((skill, index) => (
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+              {detailedSkills.map((skillCategory, categoryIndex) => (
                 <motion.div
-                  key={skill.category}
-                  initial={{ opacity: 0, scale: 0.9 }}
-                  whileInView={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                  className="bg-white rounded-lg p-4 shadow-md"
+                  key={skillCategory.category}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: categoryIndex * 0.1 }}
+                  className="bg-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
                 >
-                  <div className="flex items-center justify-between mb-3">
-                    <h4 className="font-medium text-gray-900">{skill.category}</h4>
-                    <span className="text-sm font-semibold text-gray-600">{skill.percentage}%</span>
+                  {/* Category Header */}
+                  <div className="flex items-center mb-4">
+                    <motion.div 
+                      className={`w-12 h-12 rounded-lg ${skillCategory.color} flex items-center justify-center mr-4`}
+                      whileHover={{ rotate: 360 }}
+                      transition={{ duration: 0.6 }}
+                    >
+                      <skillCategory.icon className="h-6 w-6 text-white" />
+                    </motion.div>
+                    <div className="flex-1">
+                      <h4 className="text-xl font-bold text-gray-900">{skillCategory.category}</h4>
+                      <div className="flex items-center mt-1">
+                        <div className="flex-1 bg-gray-200 rounded-full h-2 mr-3">
+                          <motion.div
+                            className={`h-2 rounded-full bg-gradient-to-r ${skillCategory.gradient}`}
+                            initial={{ width: 0 }}
+                            whileInView={{ width: `${skillCategory.percentage}%` }}
+                            transition={{ duration: 1.2, delay: categoryIndex * 0.1 }}
+                          />
+                        </div>
+                        <span className="text-sm font-semibold text-gray-600">{skillCategory.percentage}%</span>
+                      </div>
+                    </div>
                   </div>
-                  <div className="relative">
-                    <div className="w-full bg-gray-200 rounded-full h-2">
-                      <motion.div
-                        className={`h-2 rounded-full ${skill.color}`}
-                        initial={{ width: 0 }}
-                        whileInView={{ width: `${skill.percentage}%` }}
-                        transition={{ duration: 1, delay: index * 0.1 }}
-                      />
+
+                  {/* Description */}
+                  <p className="text-gray-600 mb-6 text-sm leading-relaxed">
+                    {skillCategory.description}
+                  </p>
+
+                  {/* Tools & Technologies */}
+                  <div className="mb-6">
+                    <h5 className="font-semibold text-gray-900 mb-3 flex items-center text-sm">
+                      <Settings className="h-4 w-4 mr-2 text-gray-500" />
+                      Tools & Technologies
+                    </h5>
+                    <div className="grid grid-cols-2 gap-2">
+                      {skillCategory.tools.map((tool, toolIndex) => (
+                        <motion.div
+                          key={tool.name}
+                          initial={{ opacity: 0, x: -10 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          transition={{ delay: toolIndex * 0.05 }}
+                          className="flex items-center justify-between bg-gray-50 rounded-lg px-3 py-2 hover:bg-gray-100 transition-colors"
+                        >
+                          <div className="flex items-center">
+                            <tool.icon className="h-3 w-3 text-gray-500 mr-2" />
+                            <span className="text-xs font-medium text-gray-700">{tool.name}</span>
+                          </div>
+                          <div className="flex items-center">
+                            <div className="w-8 bg-gray-200 rounded-full h-1 mr-1">
+                              <motion.div
+                                className={`h-1 rounded-full ${skillCategory.color}`}
+                                initial={{ width: 0 }}
+                                whileInView={{ width: `${tool.level}%` }}
+                                transition={{ duration: 0.8, delay: toolIndex * 0.05 }}
+                              />
+                            </div>
+                            <span className="text-xs text-gray-500">{tool.level}%</span>
+                          </div>
+                        </motion.div>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Notable Projects */}
+                  <div>
+                    <h5 className="font-semibold text-gray-900 mb-3 flex items-center text-sm">
+                      <Briefcase className="h-4 w-4 mr-2 text-gray-500" />
+                      Notable Projects
+                    </h5>
+                    <div className="flex flex-wrap gap-2">
+                      {skillCategory.projects.map((project, projectIndex) => (
+                        <motion.div
+                          key={project}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          transition={{ delay: projectIndex * 0.1 }}
+                        >
+                          <Badge 
+                            variant="secondary" 
+                            className="text-xs hover:bg-primary hover:text-white transition-colors cursor-default"
+                          >
+                            {project}
+                          </Badge>
+                        </motion.div>
+                      ))}
                     </div>
                   </div>
                 </motion.div>
               ))}
             </div>
+
+            {/* Skills Summary */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+              className="mt-12 bg-white rounded-xl p-6 shadow-lg"
+            >
+              <h4 className="text-xl font-bold text-gray-900 mb-6 text-center flex items-center justify-center">
+                <TrendingUp className="h-5 w-5 mr-2 text-primary" />
+                Skills Overview
+              </h4>
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+                {skillsOverview.map((skill, index) => (
+                  <motion.div
+                    key={skill.category}
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.5, delay: index * 0.05 }}
+                    className="text-center"
+                  >
+                    <div className="relative w-16 h-16 mx-auto mb-2">
+                      <svg className="w-16 h-16 transform -rotate-90" viewBox="0 0 36 36">
+                        <path
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                          fill="none"
+                          stroke="#e5e7eb"
+                          strokeWidth="2"
+                        />
+                        <motion.path
+                          d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeDasharray={`${skill.percentage}, 100`}
+                          className={skill.color.replace('bg-', 'text-')}
+                          initial={{ strokeDasharray: "0, 100" }}
+                          whileInView={{ strokeDasharray: `${skill.percentage}, 100` }}
+                          transition={{ duration: 1.5, delay: index * 0.1 }}
+                        />
+                      </svg>
+                      <div className="absolute inset-0 flex items-center justify-center">
+                        <span className="text-xs font-bold text-gray-700">{skill.percentage}%</span>
+                      </div>
+                    </div>
+                    <h5 className="text-xs font-medium text-gray-700 text-center leading-tight">
+                      {skill.category}
+                    </h5>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
           </motion.div>
         </div>
       </section>
