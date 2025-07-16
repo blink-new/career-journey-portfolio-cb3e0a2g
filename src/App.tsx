@@ -15,191 +15,141 @@ import {
   TrendingUp,
   Briefcase,
   GraduationCap,
-  Star
+  Star,
+  Shield,
+  BookOpen,
+  Zap,
+  Database,
+  Server,
+  Globe,
+  Settings,
+  CheckCircle,
+  Brain,
+  Target,
+  Lightbulb
 } from 'lucide-react'
 import { Button } from './components/ui/button'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './components/ui/card'
 import { Badge } from './components/ui/badge'
 import { Progress } from './components/ui/progress'
 
-const careerStages = [
+const roleCategories = [
   {
     id: 1,
-    title: "Educator",
-    period: "2016-2018",
-    company: "Seven Kidscode",
-    location: "Remote",
-    description: "Taught programming fundamentals to children and teenagers, developing curriculum and fostering young minds in technology education.",
-    skills: ["Teaching", "Curriculum Development", "Scratch", "Python", "JavaScript", "Communication", "Mentoring", "Educational Technology"],
+    title: "Software Engineer",
+    icon: Code,
+    color: "bg-blue-500",
+    gradient: "from-blue-500 to-blue-600",
+    description: "Building robust applications and scalable systems",
+    skills: [
+      "JavaScript", "TypeScript", "Python", "Java", "React", "Node.js", 
+      "Express.js", "MongoDB", "PostgreSQL", "Git", "Docker", "REST APIs",
+      "GraphQL", "Microservices", "Test-Driven Development", "Agile"
+    ],
     achievements: [
-      "Developed interactive coding curriculum for 200+ students aged 8-16",
-      "Achieved 95% student retention rate across all programs",
-      "Created engaging project-based learning modules",
-      "Mentored students who went on to win regional coding competitions"
-    ],
-    projects: [
-      {
-        name: "Interactive Coding Games",
-        description: "Gamified learning platform to teach programming concepts",
-        tech: ["Scratch", "JavaScript", "HTML5"]
-      },
-      {
-        name: "Student Portfolio System",
-        description: "Platform for students to showcase their coding projects",
-        tech: ["Python", "Flask", "SQLite"]
-      }
-    ],
-    icon: GraduationCap,
-    color: "bg-emerald-500"
+      "Developed 20+ full-stack applications",
+      "Reduced system response time by 45%",
+      "Led migration to microservices architecture",
+      "Mentored 5+ junior developers"
+    ]
   },
   {
     id: 2,
-    title: "Web Developer",
-    period: "2018-2020",
-    company: "TechStart Solutions",
-    location: "San Francisco, CA",
-    description: "Started my journey building responsive websites and web applications using modern frontend technologies.",
-    skills: ["HTML5", "CSS3", "JavaScript", "React", "Vue.js", "SASS", "Bootstrap", "jQuery"],
+    title: "Cloud Engineer",
+    icon: Cloud,
+    color: "bg-purple-500",
+    gradient: "from-purple-500 to-purple-600",
+    description: "Designing and managing cloud infrastructure at scale",
+    skills: [
+      "AWS", "Azure", "Google Cloud", "Kubernetes", "Docker", "Terraform",
+      "Jenkins", "CI/CD", "DevOps", "Infrastructure as Code", "Monitoring",
+      "Auto-scaling", "Load Balancing", "Security", "Cost Optimization"
+    ],
     achievements: [
-      "Built 15+ responsive websites with 99% client satisfaction",
-      "Reduced page load times by 40% through optimization",
-      "Mentored 3 junior developers"
-    ],
-    projects: [
-      {
-        name: "E-commerce Platform",
-        description: "Full-featured online store with payment integration",
-        tech: ["React", "Node.js", "MongoDB"]
-      },
-      {
-        name: "Portfolio CMS",
-        description: "Content management system for creative professionals",
-        tech: ["Vue.js", "Express", "MySQL"]
-      }
-    ],
-    icon: Code,
-    color: "bg-blue-500"
+      "Migrated 15+ applications to cloud",
+      "Reduced infrastructure costs by 40%",
+      "Achieved 99.9% uptime across all services",
+      "Implemented automated deployment pipelines"
+    ]
   },
   {
     id: 3,
-    title: "Software Engineer",
-    period: "2020-2022",
-    company: "InnovateTech Corp",
-    location: "Seattle, WA",
-    description: "Evolved into full-stack development, working on complex applications and microservices architecture.",
-    skills: ["Python", "Java", "Node.js", "React", "PostgreSQL", "Docker", "Git", "REST APIs", "GraphQL"],
+    title: "Educator",
+    icon: GraduationCap,
+    color: "bg-green-500",
+    gradient: "from-green-500 to-green-600",
+    description: "Teaching and mentoring the next generation of developers",
+    skills: [
+      "Curriculum Development", "Teaching", "Mentoring", "Public Speaking",
+      "Workshop Design", "Educational Technology", "Assessment Design",
+      "Learning Management Systems", "Student Engagement", "Communication"
+    ],
     achievements: [
-      "Architected microservices handling 1M+ daily requests",
-      "Improved system performance by 60% through optimization",
-      "Led a team of 4 developers on critical projects",
-      "Implemented CI/CD pipelines reducing deployment time by 75%"
-    ],
-    projects: [
-      {
-        name: "Real-time Analytics Dashboard",
-        description: "Live data visualization platform for business intelligence",
-        tech: ["React", "Python", "PostgreSQL", "WebSocket"]
-      },
-      {
-        name: "API Gateway Service",
-        description: "Centralized API management and authentication system",
-        tech: ["Node.js", "Docker", "Redis", "JWT"]
-      }
-    ],
-    icon: Briefcase,
-    color: "bg-green-500"
+      "Trained 500+ students in programming",
+      "Developed 10+ comprehensive courses",
+      "Achieved 95% student satisfaction rate",
+      "Created innovative learning methodologies"
+    ]
   },
   {
     id: 4,
-    title: "Cloud Developer",
-    period: "2022-2024",
-    company: "CloudScale Technologies",
-    location: "Austin, TX",
-    description: "Specialized in cloud-native applications, DevOps practices, and scalable infrastructure solutions.",
-    skills: ["AWS", "Azure", "Kubernetes", "Terraform", "Python", "Go", "Docker", "Jenkins", "Monitoring"],
+    title: "Manager",
+    icon: Users,
+    color: "bg-orange-500",
+    gradient: "from-orange-500 to-orange-600",
+    description: "Leading teams and driving strategic initiatives",
+    skills: [
+      "Team Leadership", "Project Management", "Strategic Planning",
+      "Performance Management", "Budget Management", "Stakeholder Management",
+      "Agile Methodologies", "Risk Management", "Decision Making", "Communication"
+    ],
     achievements: [
-      "Migrated legacy systems to cloud, reducing costs by 45%",
-      "Designed auto-scaling infrastructure serving 10M+ users",
-      "Achieved 99.9% uptime across all production systems",
-      "Established DevOps best practices across 3 teams"
-    ],
-    projects: [
-      {
-        name: "Multi-Cloud Infrastructure",
-        description: "Hybrid cloud solution with disaster recovery",
-        tech: ["AWS", "Terraform", "Kubernetes", "Prometheus"]
-      },
-      {
-        name: "Serverless Data Pipeline",
-        description: "Event-driven data processing at scale",
-        tech: ["AWS Lambda", "Python", "DynamoDB", "SQS"]
-      }
-    ],
-    icon: Cloud,
-    color: "bg-purple-500"
+      "Managed teams of 15+ professionals",
+      "Delivered 25+ projects on time and budget",
+      "Increased team productivity by 35%",
+      "Implemented effective performance systems"
+    ]
   },
   {
     id: 5,
-    title: "Chief Operating Officer",
-    period: "2024-Present",
-    company: "NextGen Solutions",
-    location: "New York, NY",
-    description: "Leading operations and technology strategy, driving digital transformation and team growth.",
-    skills: ["Leadership", "Strategy", "Operations", "Team Building", "Product Management", "Agile", "Budgeting"],
+    title: "Compliance Officer",
+    icon: Shield,
+    color: "bg-red-500",
+    gradient: "from-red-500 to-red-600",
+    description: "Ensuring regulatory compliance and risk management",
+    skills: [
+      "Regulatory Compliance", "Risk Assessment", "Policy Development",
+      "Audit Management", "Legal Framework", "Data Protection", "GDPR",
+      "Security Standards", "Documentation", "Training", "Reporting"
+    ],
     achievements: [
-      "Scaled engineering team from 15 to 50+ members",
-      "Increased company revenue by 120% year-over-year",
-      "Launched 3 successful products reaching 500K+ users",
-      "Established remote-first culture with 95% retention rate"
-    ],
-    projects: [
-      {
-        name: "Digital Transformation Initiative",
-        description: "Company-wide modernization of systems and processes",
-        tech: ["Cloud Migration", "Automation", "Analytics"]
-      },
-      {
-        name: "Product Innovation Lab",
-        description: "R&D division for emerging technologies",
-        tech: ["AI/ML", "Blockchain", "IoT"]
-      }
-    ],
-    icon: Users,
-    color: "bg-orange-500"
+      "Implemented compliance frameworks",
+      "Reduced compliance violations by 90%",
+      "Conducted 50+ successful audits",
+      "Developed comprehensive policy documentation"
+    ]
   }
 ]
 
-const skillsEvolution = [
-  { skill: "Frontend Development", levels: [30, 90, 95, 85, 70] },
-  { skill: "Backend Development", levels: [20, 60, 90, 95, 80] },
-  { skill: "Cloud & DevOps", levels: [5, 20, 40, 95, 85] },
-  { skill: "Leadership & Management", levels: [85, 10, 30, 60, 95] },
-  { skill: "System Architecture", levels: [10, 30, 70, 90, 95] },
-  { skill: "Team Collaboration", levels: [95, 70, 80, 85, 95] }
+const skillsOverview = [
+  { category: "Technical Skills", percentage: 95, color: "bg-blue-500" },
+  { category: "Cloud & DevOps", percentage: 90, color: "bg-purple-500" },
+  { category: "Leadership", percentage: 85, color: "bg-orange-500" },
+  { category: "Education", percentage: 88, color: "bg-green-500" },
+  { category: "Compliance", percentage: 82, color: "bg-red-500" },
+  { category: "Communication", percentage: 92, color: "bg-indigo-500" }
 ]
 
 function App() {
-  const [activeStage, setActiveStage] = useState(0)
+  const [activeRole, setActiveRole] = useState(0)
   const { scrollYProgress } = useScroll()
   const y = useTransform(scrollYProgress, [0, 1], ['0%', '-50%'])
 
   useEffect(() => {
-    const handleScroll = () => {
-      const sections = document.querySelectorAll('.career-stage')
-      const scrollPosition = window.scrollY + window.innerHeight / 2
-
-      sections.forEach((section, index) => {
-        const sectionTop = (section as HTMLElement).offsetTop
-        const sectionBottom = sectionTop + (section as HTMLElement).offsetHeight
-
-        if (scrollPosition >= sectionTop && scrollPosition <= sectionBottom) {
-          setActiveStage(index)
-        }
-      })
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    const interval = setInterval(() => {
+      setActiveRole((prev) => (prev + 1) % roleCategories.length)
+    }, 4000)
+    return () => clearInterval(interval)
   }, [])
 
   return (
@@ -218,18 +168,32 @@ function App() {
             transition={{ duration: 0.8 }}
             className="mb-8"
           >
-            <div className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-4xl font-bold shadow-2xl">
-              AK
-            </div>
+            <motion.div 
+              className="w-32 h-32 mx-auto mb-6 rounded-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white text-4xl font-bold shadow-2xl"
+              whileHover={{ scale: 1.05 }}
+              transition={{ type: "spring", stiffness: 300 }}
+            >
+              HF
+            </motion.div>
             <h1 className="text-5xl md:text-7xl font-bold text-gray-900 mb-4">
-              Alex Kim
+              Honore Fred
             </h1>
-            <p className="text-xl md:text-2xl text-gray-600 mb-6">
-              Chief Operating Officer & Technology Leader
-            </p>
-            <p className="text-lg text-gray-500 max-w-2xl mx-auto mb-8">
-              From crafting pixels to leading teams — a journey through the evolution of technology and leadership
-            </p>
+            <motion.p 
+              className="text-xl md:text-2xl text-gray-600 mb-6"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.3 }}
+            >
+              Multi-Disciplinary Technology Professional
+            </motion.p>
+            <motion.p 
+              className="text-lg text-gray-500 max-w-2xl mx-auto mb-8"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 0.5 }}
+            >
+              Software Engineer • Cloud Architect • Educator • Manager • Compliance Expert
+            </motion.p>
           </motion.div>
 
           <motion.div
@@ -244,7 +208,7 @@ function App() {
             </Button>
             <Button variant="outline" size="lg">
               <Mail className="mr-2 h-4 w-4" />
-              Get In Touch
+              honorefred@gmail.com
             </Button>
           </motion.div>
 
@@ -254,15 +218,30 @@ function App() {
             transition={{ duration: 1, delay: 0.6 }}
             className="flex justify-center space-x-6"
           >
-            <a href="#" className="text-gray-600 hover:text-primary transition-colors">
+            <motion.a 
+              href="#" 
+              className="text-gray-600 hover:text-primary transition-colors"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            >
               <Linkedin className="h-6 w-6" />
-            </a>
-            <a href="#" className="text-gray-600 hover:text-primary transition-colors">
+            </motion.a>
+            <motion.a 
+              href="#" 
+              className="text-gray-600 hover:text-primary transition-colors"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            >
               <Github className="h-6 w-6" />
-            </a>
-            <a href="#" className="text-gray-600 hover:text-primary transition-colors">
+            </motion.a>
+            <motion.a 
+              href="mailto:honorefred@gmail.com" 
+              className="text-gray-600 hover:text-primary transition-colors"
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
+            >
               <Mail className="h-6 w-6" />
-            </a>
+            </motion.a>
           </motion.div>
         </div>
 
@@ -275,7 +254,7 @@ function App() {
         </motion.div>
       </section>
 
-      {/* Career Timeline */}
+      {/* Role Categories Section */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <motion.div
@@ -285,119 +264,147 @@ function App() {
             className="text-center mb-16"
           >
             <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Career Journey
+              Professional Expertise
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A progression from hands-on development to strategic leadership, 
-              each role building upon the last to create a comprehensive understanding of technology and business.
+              A diverse skill set spanning multiple domains of technology and leadership, 
+              each role contributing to a comprehensive understanding of modern business and technology.
             </p>
           </motion.div>
 
-          <div className="relative">
-            {/* Timeline Line */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-gradient-to-b from-emerald-500 via-blue-500 via-green-500 via-purple-500 to-orange-500 h-full hidden md:block" />
-
-            {careerStages.map((stage, index) => (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+            {roleCategories.map((role, index) => (
               <motion.div
-                key={stage.id}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.2 }}
-                className={`career-stage mb-16 md:mb-24 ${
-                  index % 2 === 0 ? 'md:pr-1/2' : 'md:pl-1/2 md:ml-1/2'
-                }`}
+                key={role.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                whileHover={{ y: -5 }}
+                className="group"
               >
-                <Card className={`relative ${
-                  activeStage === index ? 'ring-2 ring-primary shadow-xl' : 'shadow-lg'
-                } transition-all duration-300 hover:shadow-xl`}>
-                  {/* Timeline Dot */}
-                  <div className={`absolute top-8 ${
-                    index % 2 === 0 ? 'md:-right-6' : 'md:-left-6'
-                  } hidden md:block`}>
-                    <div className={`w-12 h-12 rounded-full ${stage.color} flex items-center justify-center shadow-lg`}>
-                      <stage.icon className="h-6 w-6 text-white" />
-                    </div>
-                  </div>
-
-                  <CardHeader>
-                    <div className="flex items-center justify-between mb-2">
-                      <Badge variant="secondary" className="text-sm">
-                        {stage.period}
+                <Card className="h-full hover:shadow-xl transition-all duration-300 border-0 shadow-lg overflow-hidden">
+                  <div className={`h-2 bg-gradient-to-r ${role.gradient}`} />
+                  
+                  <CardHeader className="pb-4">
+                    <div className="flex items-center justify-between mb-4">
+                      <motion.div 
+                        className={`w-12 h-12 rounded-lg ${role.color} flex items-center justify-center shadow-lg`}
+                        whileHover={{ rotate: 360 }}
+                        transition={{ duration: 0.6 }}
+                      >
+                        <role.icon className="h-6 w-6 text-white" />
+                      </motion.div>
+                      <Badge variant="secondary" className="text-xs">
+                        Expert Level
                       </Badge>
-                      <div className={`w-8 h-8 rounded-full ${stage.color} flex items-center justify-center md:hidden`}>
-                        <stage.icon className="h-4 w-4 text-white" />
-                      </div>
                     </div>
-                    <CardTitle className="text-2xl text-gray-900">{stage.title}</CardTitle>
-                    <CardDescription className="text-lg">
-                      <div className="flex items-center text-gray-600 mb-1">
-                        <Briefcase className="h-4 w-4 mr-2" />
-                        {stage.company}
-                      </div>
-                      <div className="flex items-center text-gray-500">
-                        <MapPin className="h-4 w-4 mr-2" />
-                        {stage.location}
-                      </div>
+                    <CardTitle className="text-xl text-gray-900 group-hover:text-primary transition-colors">
+                      {role.title}
+                    </CardTitle>
+                    <CardDescription className="text-gray-600">
+                      {role.description}
                     </CardDescription>
                   </CardHeader>
 
                   <CardContent>
-                    <p className="text-gray-700 mb-6">{stage.description}</p>
-
                     {/* Skills */}
                     <div className="mb-6">
-                      <h4 className="font-semibold text-gray-900 mb-3">Key Technologies & Skills</h4>
-                      <div className="flex flex-wrap gap-2">
-                        {stage.skills.map((skill) => (
-                          <Badge key={skill} variant="outline" className="text-sm">
-                            {skill}
-                          </Badge>
+                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                        <Zap className="h-4 w-4 mr-2 text-accent" />
+                        Core Skills
+                      </h4>
+                      <div className="flex flex-wrap gap-1.5">
+                        {role.skills.slice(0, 8).map((skill, skillIndex) => (
+                          <motion.div
+                            key={skill}
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: skillIndex * 0.05 }}
+                          >
+                            <Badge variant="outline" className="text-xs hover:bg-primary hover:text-white transition-colors">
+                              {skill}
+                            </Badge>
+                          </motion.div>
                         ))}
+                        {role.skills.length > 8 && (
+                          <Badge variant="secondary" className="text-xs">
+                            +{role.skills.length - 8} more
+                          </Badge>
+                        )}
                       </div>
                     </div>
 
-                    {/* Achievements */}
-                    <div className="mb-6">
-                      <h4 className="font-semibold text-gray-900 mb-3">Key Achievements</h4>
+                    {/* Key Achievements */}
+                    <div>
+                      <h4 className="font-semibold text-gray-900 mb-3 flex items-center">
+                        <Target className="h-4 w-4 mr-2 text-accent" />
+                        Key Achievements
+                      </h4>
                       <ul className="space-y-2">
-                        {stage.achievements.map((achievement, i) => (
-                          <li key={i} className="flex items-start">
-                            <Star className="h-4 w-4 text-accent mr-2 mt-0.5 flex-shrink-0" />
+                        {role.achievements.slice(0, 3).map((achievement, i) => (
+                          <motion.li 
+                            key={i} 
+                            className="flex items-start text-sm"
+                            initial={{ opacity: 0, x: -10 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            transition={{ delay: i * 0.1 }}
+                          >
+                            <CheckCircle className="h-3 w-3 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
                             <span className="text-gray-700">{achievement}</span>
-                          </li>
+                          </motion.li>
                         ))}
                       </ul>
-                    </div>
-
-                    {/* Projects */}
-                    <div>
-                      <h4 className="font-semibold text-gray-900 mb-3">Notable Projects</h4>
-                      <div className="space-y-3">
-                        {stage.projects.map((project, i) => (
-                          <div key={i} className="border-l-4 border-primary/20 pl-4">
-                            <h5 className="font-medium text-gray-900">{project.name}</h5>
-                            <p className="text-sm text-gray-600 mb-2">{project.description}</p>
-                            <div className="flex flex-wrap gap-1">
-                              {project.tech.map((tech) => (
-                                <Badge key={tech} variant="secondary" className="text-xs">
-                                  {tech}
-                                </Badge>
-                              ))}
-                            </div>
-                          </div>
-                        ))}
-                      </div>
                     </div>
                   </CardContent>
                 </Card>
               </motion.div>
             ))}
           </div>
+
+          {/* Detailed Skills Showcase */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="bg-gradient-to-br from-gray-50 to-blue-50 rounded-2xl p-8"
+          >
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center flex items-center justify-center">
+              <Brain className="h-6 w-6 mr-3 text-primary" />
+              Comprehensive Skill Matrix
+            </h3>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {skillsOverview.map((skill, index) => (
+                <motion.div
+                  key={skill.category}
+                  initial={{ opacity: 0, scale: 0.9 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  className="bg-white rounded-lg p-4 shadow-md"
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <h4 className="font-medium text-gray-900">{skill.category}</h4>
+                    <span className="text-sm font-semibold text-gray-600">{skill.percentage}%</span>
+                  </div>
+                  <div className="relative">
+                    <div className="w-full bg-gray-200 rounded-full h-2">
+                      <motion.div
+                        className={`h-2 rounded-full ${skill.color}`}
+                        initial={{ width: 0 }}
+                        whileInView={{ width: `${skill.percentage}%` }}
+                        transition={{ duration: 1, delay: index * 0.1 }}
+                      />
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Skills Evolution */}
-      <section className="py-20 bg-gradient-to-br from-slate-50 to-blue-50">
+      {/* Interactive Role Spotlight */}
+      <section className="py-20 bg-gradient-to-br from-slate-900 to-blue-900 text-white">
         <div className="container mx-auto px-6">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -405,44 +412,101 @@ function App() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-              Skills Evolution
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              Role Spotlight
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              How my expertise has grown and shifted across different domains throughout my career journey.
+            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
+              Explore the depth of expertise in each professional domain
             </p>
           </motion.div>
 
-          <div className="grid gap-8 max-w-4xl mx-auto">
-            {skillsEvolution.map((skillData, index) => (
-              <motion.div
-                key={skillData.skill}
-                initial={{ opacity: 0, x: -30 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: index * 0.1 }}
-                className="bg-white rounded-lg p-6 shadow-lg"
-              >
-                <h3 className="text-lg font-semibold text-gray-900 mb-4">{skillData.skill}</h3>
-                <div className="grid grid-cols-5 gap-4">
-                  {skillData.levels.map((level, stageIndex) => (
-                    <div key={stageIndex} className="text-center">
-                      <div className="text-sm text-gray-600 mb-2">
-                        {careerStages[stageIndex].title.split(' ')[0]}
-                      </div>
-                      <div className="relative">
-                        <Progress value={level} className="h-3" />
-                        <div className="text-xs text-gray-500 mt-1">{level}%</div>
-                      </div>
-                    </div>
-                  ))}
+          <div className="max-w-4xl mx-auto">
+            {/* Role Navigation */}
+            <div className="flex flex-wrap justify-center gap-4 mb-12">
+              {roleCategories.map((role, index) => (
+                <motion.button
+                  key={role.id}
+                  onClick={() => setActiveRole(index)}
+                  className={`flex items-center px-4 py-2 rounded-lg transition-all duration-300 ${
+                    activeRole === index 
+                      ? `${role.color} text-white shadow-lg` 
+                      : 'bg-white/10 text-white hover:bg-white/20'
+                  }`}
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                >
+                  <role.icon className="h-4 w-4 mr-2" />
+                  {role.title}
+                </motion.button>
+              ))}
+            </div>
+
+            {/* Active Role Details */}
+            <motion.div
+              key={activeRole}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="bg-white/10 backdrop-blur-sm rounded-2xl p-8"
+            >
+              <div className="flex items-center mb-6">
+                <div className={`w-16 h-16 rounded-xl ${roleCategories[activeRole].color} flex items-center justify-center mr-6`}>
+                  <roleCategories[activeRole].icon className="h-8 w-8 text-white" />
                 </div>
-              </motion.div>
-            ))}
+                <div>
+                  <h3 className="text-2xl font-bold">{roleCategories[activeRole].title}</h3>
+                  <p className="text-blue-100">{roleCategories[activeRole].description}</p>
+                </div>
+              </div>
+
+              <div className="grid md:grid-cols-2 gap-8">
+                <div>
+                  <h4 className="text-lg font-semibold mb-4 flex items-center">
+                    <Settings className="h-5 w-5 mr-2 text-accent" />
+                    Technical Skills
+                  </h4>
+                  <div className="grid grid-cols-2 gap-2">
+                    {roleCategories[activeRole].skills.map((skill, index) => (
+                      <motion.div
+                        key={skill}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.05 }}
+                        className="bg-white/10 rounded-lg px-3 py-2 text-sm"
+                      >
+                        {skill}
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
+
+                <div>
+                  <h4 className="text-lg font-semibold mb-4 flex items-center">
+                    <Award className="h-5 w-5 mr-2 text-accent" />
+                    Major Achievements
+                  </h4>
+                  <ul className="space-y-3">
+                    {roleCategories[activeRole].achievements.map((achievement, index) => (
+                      <motion.li
+                        key={index}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: index * 0.1 }}
+                        className="flex items-start"
+                      >
+                        <Star className="h-4 w-4 text-accent mr-3 mt-0.5 flex-shrink-0" />
+                        <span className="text-blue-100">{achievement}</span>
+                      </motion.li>
+                    ))}
+                  </ul>
+                </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
 
-      {/* Leadership Philosophy */}
+      {/* Professional Philosophy */}
       <section className="py-20 bg-white">
         <div className="container mx-auto px-6">
           <motion.div
@@ -451,24 +515,38 @@ function App() {
             transition={{ duration: 0.8 }}
             className="max-w-4xl mx-auto text-center"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8">
-              Leadership Philosophy
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-8 flex items-center justify-center">
+              <Lightbulb className="h-10 w-10 mr-4 text-accent" />
+              Professional Philosophy
             </h2>
             <div className="text-lg text-gray-700 space-y-6 leading-relaxed">
-              <p>
-                "Technology is only as powerful as the people who wield it. My journey from writing code to leading teams 
-                has taught me that the most impactful solutions come from empowering others to do their best work."
-              </p>
-              <p>
-                "I believe in servant leadership — creating environments where innovation thrives, where failure is a 
-                learning opportunity, and where every team member feels valued and heard. The best leaders don't just 
-                direct; they inspire, mentor, and clear the path for others to succeed."
-              </p>
-              <p>
-                "In our rapidly evolving tech landscape, adaptability isn't just an advantage — it's essential. 
-                I've learned to embrace change, foster continuous learning, and build resilient teams that can 
-                navigate uncertainty while maintaining focus on delivering value."
-              </p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2 }}
+              >
+                "Technology is a powerful enabler, but its true value lies in how we apply it to solve real-world problems. 
+                My diverse experience across software engineering, cloud architecture, education, management, and compliance 
+                has taught me that the best solutions emerge from understanding both technical possibilities and human needs."
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.4 }}
+              >
+                "Whether I'm architecting scalable cloud solutions, mentoring the next generation of developers, 
+                leading cross-functional teams, or ensuring regulatory compliance, I believe in the power of 
+                continuous learning, ethical practices, and collaborative innovation."
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.6 }}
+              >
+                "In our rapidly evolving digital landscape, adaptability and integrity are not just advantages — 
+                they're essential. I strive to build bridges between technical excellence and business value, 
+                always keeping the end user and organizational goals at the center of every decision."
+              </motion.p>
             </div>
           </motion.div>
         </div>
@@ -483,21 +561,25 @@ function App() {
             transition={{ duration: 0.8 }}
           >
             <h2 className="text-4xl md:text-5xl font-bold mb-4">
-              Let's Build Something Amazing
+              Let's Collaborate
             </h2>
             <p className="text-xl mb-8 max-w-2xl mx-auto opacity-90">
-              Whether you're looking for technical leadership, strategic guidance, or just want to connect, 
-              I'd love to hear from you.
+              Ready to tackle complex challenges together? Whether you need technical expertise, 
+              strategic guidance, or educational support, I'm here to help.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Button size="lg" variant="secondary">
-                <Mail className="mr-2 h-4 w-4" />
-                alex.kim@email.com
-              </Button>
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
-                <Linkedin className="mr-2 h-4 w-4" />
-                Connect on LinkedIn
-              </Button>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button size="lg" variant="secondary">
+                  <Mail className="mr-2 h-4 w-4" />
+                  honorefred@gmail.com
+                </Button>
+              </motion.div>
+              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white hover:text-primary">
+                  <Linkedin className="mr-2 h-4 w-4" />
+                  Connect on LinkedIn
+                </Button>
+              </motion.div>
             </div>
           </motion.div>
         </div>
@@ -506,7 +588,13 @@ function App() {
       {/* Footer */}
       <footer className="py-8 bg-gray-900 text-gray-400 text-center">
         <div className="container mx-auto px-6">
-          <p>&copy; 2024 Alex Kim. Crafted with passion and precision.</p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            transition={{ duration: 0.8 }}
+          >
+            &copy; 2024 Honore Fred. Crafted with passion for technology and innovation.
+          </motion.p>
         </div>
       </footer>
     </div>
